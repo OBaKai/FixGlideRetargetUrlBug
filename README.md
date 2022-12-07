@@ -13,6 +13,7 @@ glide缓存：www.prohub.com/a.png <==> 403图
 
 
 #### 源码分析：网络加载图片 -> disk cache过程
+```java
 1、SourceGenerator#startNext（轮询执行所有LoadData）
 	-> SourceGenerator#startNextLoad（执行单个LoadData）
 	-> LoadData#fetcher#loadData（执行具体任务，以网络加载图片为例）
@@ -29,11 +30,14 @@ glide缓存：www.prohub.com/a.png <==> 403图
  2.3、执行齿盘缓存（DiskLruCache）
     helper.getDiskCache().put(originalKey, writer); -> DiskLruCacheWrapper#put ...
  2.4、缓存路径在 /data/data/pkg/cache/image_manager_disk_cache
+```
 
 
 #### 解决方法：将重定向后的url更新给Glide，让Glide用正确的url来cache即可
+```java
 1、直接去Glide源码改，改它喵的（比较粗暴，入侵性强）
 2、通过Glide4提供的自定义组件将网络组件替换成Okhttp，在网络请求完成后判断是否发送重定向了。
    如果重定向了就将新的url更新给Glide，让Glide用重定向后的url进行缓存。
+```
    
 #### FixGlideRetargetUrlBug代码就是根据 方法2 实现的

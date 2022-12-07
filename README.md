@@ -2,12 +2,14 @@
 ### Glide遇到重定向url产生的bug（bug地址 https://github.com/bumptech/glide/issues/4652）
 
 #### 问题描述：
+```java
 正常情况：www.prohub.com/a.png -> a图
 glide缓存：www.prohub.com/a.png <==> a图
 
 重定向情况：www.prohub.com/a.png -> www.fbiwarning.com/403.png -> 403图
 glide缓存：www.prohub.com/a.png <==> 403图
 假设www.prohub.com/a.png恢复了正常不会重定向了，由于glide缓存，glide直接加载了403图，导致bug产生
+```
 
 
 #### 源码分析：网络加载图片 -> disk cache过程

@@ -1,5 +1,6 @@
 
-### Glide遇到重定向url产生的bug（bug地址 https://github.com/bumptech/glide/issues/4652）
+### Glide遇到重定向url产生的bug
+issues地址 https://github.com/bumptech/glide/issues/4652
 
 #### 问题描述：
 ```java

@@ -1,4 +1,4 @@
-package com.llk.glide_fix_bug.glide;
+package com.llk.glide_fix_bug.glide_1;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -27,7 +27,7 @@ public class RetargetableGlideUrl implements Key {
 
   @Nullable private final URL url;
   //llk：将stringUrl字符串去掉final，因为重定向的情况需要改变它的值
-  @Nullable private String stringUrl;
+  @Nullable private volatile String stringUrl;
 
   @Nullable private String safeStringUrl;
   @Nullable private URL safeUrl;

@@ -1,6 +1,8 @@
 package com.llk.glide_fix_bug.glide_2;
 
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Priority;

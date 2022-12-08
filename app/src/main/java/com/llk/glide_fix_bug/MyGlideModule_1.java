@@ -19,7 +19,7 @@ import okhttp3.OkHttpClient;
  *
  * todo 方法1 只测试了glide disk cache，memory cache并没有测试
  */
-@GlideModule
+//@GlideModule
 public final class MyGlideModule_1 extends AppGlideModule {
 
     @Override
